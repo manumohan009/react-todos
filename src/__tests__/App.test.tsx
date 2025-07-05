@@ -8,8 +8,8 @@ describe('App', () => {
     expect(container).toBeInTheDocument();
   });
 
-  it('displays the app title', () => {
+  it('displays the todo app title', () => {
     const { getByText } = render(<App />);
-    expect(getByText(/React Todos/i)).toBeInTheDocument();
+    expect(getByText(/React Todos App/i)).toBeInTheDocument();
   });
 });

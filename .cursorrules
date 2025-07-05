@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is a React Todos application built with TypeScript, Vite, and modern styling solutions.
+This is a React Todos application built with TypeScript, Vite, and modern styling solutions. The app integrates with the JSONPlaceholder API to provide a full-featured todo management system.
 
 ## Tech Stack & Architecture
 
@@ -20,6 +20,8 @@ This is a React Todos application built with TypeScript, Vite, and modern stylin
 - **NO Redux** - Use React's built-in state management (useState, useReducer, Context API)
 - Prefer local component state when possible
 - Use React Context for shared state across components
+- Implement custom hooks for complex state logic (e.g., useTodos)
+- Handle async operations with proper loading and error states
 
 ## File Structure & Organization
 
@@ -28,12 +30,22 @@ This is a React Todos application built with TypeScript, Vite, and modern stylin
 ```
 src/
 ├── components/          # Reusable UI components
+│   ├── Button.tsx      # Styled button component with variants
+│   ├── Input.tsx       # Form input component with validation
+│   └── TodoItem.tsx    # Individual todo item with CRUD operations
 ├── pages/              # Page-level components
+│   └── TodoPage.tsx    # Main todos page with filtering and management
 ├── hooks/              # Custom React hooks
-├── utils/              # Utility functions
+│   └── useTodos.ts     # Todo state management and API integration
+├── services/           # API service layer
+│   └── todoService.ts  # JSONPlaceholder API integration
 ├── types/              # TypeScript type definitions
+│   └── todo.ts         # Todo-related interfaces and types
 ├── styles/             # Global Stylus styles
+│   └── global.styl     # App-wide styling and design tokens
 ├── __tests__/          # All test files
+│   ├── setup.ts        # Test environment configuration
+│   └── App.test.tsx    # Component tests
 └── assets/             # Static assets
 ```
 
@@ -43,6 +55,8 @@ src/
 - Implement TypeScript interfaces for props
 - Use styled-components for component-specific styling
 - Place components in appropriate directories based on scope
+- Follow the established component hierarchy: App → TodoPage → TodoItem
+- Use type-only imports for TypeScript interfaces (verbatimModuleSyntax enabled)
 
 ## Styling Guidelines
 
@@ -138,9 +152,27 @@ src/
 - Ensure keyboard navigation
 - Test with screen readers
 
+## API Integration
+
+### Service Layer
+
+- Create dedicated service classes for API calls
+- Use TypeScript interfaces for request/response types
+- Implement proper error handling and loading states
+- Follow RESTful conventions for API endpoints
+- Use JSONPlaceholder API for development and testing
+
+### Data Flow
+
+- Service layer → Custom hooks → Components
+- Implement optimistic updates for better UX
+- Handle API errors gracefully with user feedback
+- Use proper TypeScript types for all API interactions
+
 ## Error Handling
 
 - Use Error Boundaries for component errors
 - Implement proper error states
 - Provide meaningful error messages
 - Log errors appropriately
+- Handle API errors with user-friendly messages

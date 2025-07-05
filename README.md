@@ -1,6 +1,6 @@
 # React Todos App
 
-A modern, type-safe React application for managing todos built with TypeScript, Vite, and modern styling solutions.
+A modern, type-safe React application for managing todos built with TypeScript, Vite, and modern styling solutions. The app integrates with the [JSONPlaceholder API](https://jsonplaceholder.typicode.com/todos) to provide a full-featured todo management system with real-time data.
 
 ## 🚀 Tech Stack
 
@@ -19,7 +19,8 @@ A modern, type-safe React application for managing todos built with TypeScript, 
 
 - **React Context API** - For shared state across components
 - **React Hooks** - useState, useReducer for local state management
-- **Custom Hooks** - For reusable state logic
+- **Custom Hooks** - For reusable state logic (useTodos for API integration)
+- **Optimistic Updates** - For better user experience
 
 ## 📁 Project Structure
 
@@ -28,12 +29,22 @@ react-todos/
 ├── public/                 # Static assets
 ├── src/
 │   ├── components/         # Reusable UI components
+│   │   ├── Button.tsx     # Styled button component with variants
+│   │   ├── Input.tsx      # Form input component with validation
+│   │   └── TodoItem.tsx   # Individual todo item with CRUD operations
 │   ├── pages/             # Page-level components
+│   │   └── TodoPage.tsx   # Main todos page with filtering and management
 │   ├── hooks/             # Custom React hooks
-│   ├── utils/             # Utility functions
+│   │   └── useTodos.ts    # Todo state management and API integration
+│   ├── services/          # API service layer
+│   │   └── todoService.ts # JSONPlaceholder API integration
 │   ├── types/             # TypeScript type definitions
+│   │   └── todo.ts        # Todo-related interfaces and types
 │   ├── styles/            # Global Stylus styles
+│   │   └── global.styl    # App-wide styling and design tokens
 │   ├── __tests__/         # All test files
+│   │   ├── setup.ts       # Test environment configuration
+│   │   └── App.test.tsx   # Component tests
 │   ├── assets/            # Static assets (images, icons)
 │   ├── App.tsx            # Main app component
 │   ├── main.tsx           # App entry point
@@ -42,6 +53,8 @@ react-todos/
 ├── package.json           # Dependencies and scripts
 ├── tsconfig.json          # TypeScript configuration
 ├── vite.config.ts         # Vite configuration
+├── vitest.config.ts       # Vitest configuration
+├── .prettierrc            # Prettier configuration
 └── eslint.config.js       # ESLint configuration
 ```
 
@@ -113,6 +126,29 @@ yarn format
 - Consistent design tokens through theme provider
 - Scoped styling to prevent conflicts
 
+## 🚀 App Features
+
+### Todo Management
+- ✅ **View all todos** from JSONPlaceholder API
+- ✅ **Add new todos** with form validation
+- ✅ **Edit todo titles** inline with real-time updates
+- ✅ **Toggle completion status** with optimistic updates
+- ✅ **Delete todos** with confirmation
+- ✅ **Real-time statistics** (completed vs pending)
+
+### Filtering & Search
+- ✅ **Filter by status** (All/Pending/Completed)
+- ✅ **Filter by user ID** (dynamically populated)
+- ✅ **Search todos** by title with real-time filtering
+- ✅ **Clear filters** to reset to default view
+
+### User Experience
+- ✅ **Loading states** for all async operations
+- ✅ **Error handling** with user-friendly messages
+- ✅ **Responsive design** for all screen sizes
+- ✅ **Optimistic updates** for better performance
+- ✅ **Empty states** when no todos match filters
+
 ## 🧪 Testing Strategy
 
 ### Test Organization
@@ -172,24 +208,28 @@ yarn format
 ## 🚀 Development Workflow
 
 1. **Component Development**
-
-   - Create TypeScript interfaces
-   - Implement component logic
-   - Add styled-components styling
-   - Write comprehensive tests
+   - Create TypeScript interfaces with type-only imports
+   - Implement component logic with proper error handling
+   - Add styled-components styling with design tokens
+   - Write comprehensive tests with React Testing Library
 
 2. **State Management**
-
    - Use local state for component-specific data
-   - Implement Context API for shared state
-   - Create custom hooks for complex logic
-   - Avoid prop drilling
+   - Implement custom hooks for complex API logic (useTodos)
+   - Handle async operations with loading and error states
+   - Implement optimistic updates for better UX
 
-3. **Testing**
+3. **API Integration**
+   - Create service classes for API calls (todoService)
+   - Use TypeScript interfaces for request/response types
+   - Implement proper error handling and retry logic
+   - Follow RESTful conventions for endpoints
+
+4. **Testing**
    - Write tests alongside component development
    - Test user interactions and edge cases
    - Ensure accessibility compliance
-   - Mock external dependencies
+   - Mock API calls for isolated testing
 
 ## 📦 Key Dependencies
 
@@ -209,6 +249,22 @@ yarn format
 - `@testing-library/react` - React testing utilities
 - `eslint` - Code linting
 - `prettier` - Code formatting
+
+## 🔌 API Integration
+
+### JSONPlaceholder API
+The app integrates with the [JSONPlaceholder API](https://jsonplaceholder.typicode.com/todos) which provides:
+- **200 sample todos** across 10 users
+- **Full CRUD operations** (GET, POST, PUT, PATCH, DELETE)
+- **RESTful endpoints** for development and testing
+- **Real-time data** for todo management
+
+### Service Architecture
+- **`todoService.ts`** - Centralized API service layer
+- **Type-safe interfaces** for all API interactions
+- **Error handling** with proper HTTP status codes
+- **Loading states** for better user experience
+- **Optimistic updates** for immediate UI feedback
 
 ## 🤝 Contributing
 

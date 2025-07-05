@@ -78,6 +78,9 @@ src/
 - Add `font-family: inherit` to form elements for consistency
 - Use `:focus-visible` instead of `:focus` for better accessibility
 - Implement proper disabled states for interactive elements
+- **Use consistent design tokens** for spacing, typography, and colors
+- **Implement responsive breakpoints** for mobile-first design
+- **Add hover animations** and micro-interactions for better UX
 
 ## Testing Strategy
 
@@ -183,6 +186,14 @@ src/
 - Reset form elements (button, input, select, textarea) to remove defaults
 - Support `prefers-reduced-motion` for accessibility
 
+### Responsive Design System
+- **Mobile-first approach** with progressive enhancement
+- **Breakpoint system**: Mobile (480px), Tablet (768px), Desktop (1024px), Wide (1200px)
+- **CSS Grid and Flexbox** for modern layouts
+- **Consistent spacing scale** from xs (0.25rem) to xxl (3rem)
+- **Typography scale** from xs (0.75rem) to 4xl (2.25rem)
+- **Design tokens** for colors, shadows, and border radius
+
 ### Accessibility Styling
 - Use `:focus-visible` for keyboard navigation indicators
 - Implement proper focus outlines with `outline-offset`
@@ -195,6 +206,30 @@ src/
 - Use CSS custom properties for font sizes and line heights
 - Implement proper spacing for paragraphs and headings
 - Ensure readable line lengths and spacing
+
+### Modern Design Patterns
+- **Gradient backgrounds** for visual appeal and depth
+- **Card-based layouts** with proper shadows and spacing
+- **Status badges** with color-coded states
+- **Micro-interactions** with hover effects and transforms
+- **Consistent color palette** with semantic color naming
+- **Modern form styling** with improved focus states
+
+## Design System Architecture
+
+### Design Tokens
+- **Spacing**: xs (0.25rem), sm (0.5rem), md (1rem), lg (1.5rem), xl (2rem), xxl (3rem)
+- **Typography**: xs (0.75rem) to 4xl (2.25rem) with proper font weights
+- **Colors**: Semantic color palette with gradients for primary actions
+- **Border Radius**: sm (0.375rem), md (0.5rem), lg (0.75rem), xl (1rem)
+- **Shadows**: Multiple levels for depth and hierarchy
+
+### Component Design Principles
+- **Consistent sizing** across all interactive elements
+- **Progressive enhancement** for different screen sizes
+- **Accessibility-first** approach with proper focus management
+- **Performance optimization** with efficient CSS and animations
+- **Maintainable code** with clear component interfaces
 
 ## Error Handling
 

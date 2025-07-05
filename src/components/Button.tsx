@@ -11,118 +11,163 @@ interface ButtonProps {
   className?: string;
 }
 
+// Design tokens for consistency
+const tokens = {
+  spacing: {
+    xs: '0.25rem',
+    sm: '0.5rem',
+    md: '1rem',
+    lg: '1.5rem',
+    xl: '2rem',
+  },
+  fontSize: {
+    xs: '0.75rem',
+    sm: '0.875rem',
+    base: '1rem',
+    lg: '1.125rem',
+    xl: '1.25rem',
+  },
+  borderRadius: {
+    sm: '0.375rem',
+    md: '0.5rem',
+    lg: '0.75rem',
+  },
+  shadows: {
+    sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+    md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+  },
+};
+
 const StyledButton = styled.button<Omit<ButtonProps, 'children'>>`
-  display: inline-block;
-  font-weight: 400;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
   text-align: center;
   vertical-align: middle;
   user-select: none;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
+  border-radius: ${tokens.borderRadius.md};
+  transition: all 0.2s ease-in-out;
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
+  opacity: ${props => (props.disabled ? 0.6 : 1)};
+  font-family: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  min-height: 2.5rem;
+
+  // Size variants
   padding: ${props => {
     switch (props.size) {
       case 'sm':
-        return '0.375rem 0.75rem';
+        return `${tokens.spacing.sm} ${tokens.spacing.md}`;
       case 'lg':
-        return '0.75rem 1.5rem';
+        return `${tokens.spacing.md} ${tokens.spacing.xl}`;
       default:
-        return '0.5rem 1rem';
+        return `${tokens.spacing.md} ${tokens.spacing.lg}`;
     }
   }};
+
   font-size: ${props => {
     switch (props.size) {
       case 'sm':
-        return '0.875rem';
+        return tokens.fontSize.sm;
       case 'lg':
-        return '1.25rem';
+        return tokens.fontSize.lg;
       default:
-        return '1rem';
+        return tokens.fontSize.base;
     }
   }};
-  line-height: 1.5;
-  border-radius: 0.375rem;
-  transition: all 0.15s ease-in-out;
-  cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
-  opacity: ${props => (props.disabled ? 0.65 : 1)};
 
-  &:hover {
-    text-decoration: none;
+  line-height: 1.5;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: ${tokens.shadows.md};
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: ${tokens.shadows.sm};
   }
 
   &:focus-visible {
-    outline: 2px solid var(--primary-color);
-    outline-offset: 2px;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
   }
 
+  // Variant styles
   ${props => {
     switch (props.variant) {
       case 'primary':
         return `
           color: white;
-          background-color: var(--primary-color);
-          border-color: var(--primary-color);
+          background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+          border-color: #3b82f6;
           &:hover:not(:disabled) {
-            background-color: #0056b3;
-            border-color: #0056b3;
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            border-color: #2563eb;
           }
         `;
       case 'secondary':
         return `
-          color: white;
-          background-color: var(--secondary-color);
-          border-color: var(--secondary-color);
+          color: #64748b;
+          background: white;
+          border-color: #e2e8f0;
           &:hover:not(:disabled) {
-            background-color: #545b62;
-            border-color: #545b62;
+            background: #f8fafc;
+            border-color: #cbd5e1;
+            color: #475569;
           }
         `;
       case 'success':
         return `
           color: white;
-          background-color: var(--success-color);
-          border-color: var(--success-color);
+          background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+          border-color: #10b981;
           &:hover:not(:disabled) {
-            background-color: #1e7e34;
-            border-color: #1e7e34;
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            border-color: #059669;
           }
         `;
       case 'danger':
         return `
           color: white;
-          background-color: var(--danger-color);
-          border-color: var(--danger-color);
+          background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+          border-color: #ef4444;
           &:hover:not(:disabled) {
-            background-color: #c82333;
-            border-color: #c82333;
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            border-color: #dc2626;
           }
         `;
       case 'warning':
         return `
-          color: #212529;
-          background-color: var(--warning-color);
-          border-color: var(--warning-color);
+          color: #92400e;
+          background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+          border-color: #f59e0b;
           &:hover:not(:disabled) {
-            background-color: #e0a800;
-            border-color: #d39e00;
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            border-color: #d97706;
           }
         `;
       case 'info':
         return `
           color: white;
-          background-color: var(--info-color);
-          border-color: var(--info-color);
+          background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+          border-color: #06b6d4;
           &:hover:not(:disabled) {
-            background-color: #138496;
-            border-color: #117a8b;
+            background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+            border-color: #0891b2;
           }
         `;
       default:
         return `
-          color: #212529;
-          background-color: white;
-          border-color: #6c757d;
+          color: #1e293b;
+          background: white;
+          border-color: #e2e8f0;
           &:hover:not(:disabled) {
-            background-color: #e9ecef;
-            border-color: #6c757d;
+            background: #f8fafc;
+            border-color: #cbd5e1;
           }
         `;
     }

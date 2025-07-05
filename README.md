@@ -130,6 +130,8 @@ yarn format
 - **Form element consistency** with `font-family: inherit`
 - **Proper focus management** for accessibility
 - **Enhanced disabled states** for better UX
+- **Responsive design system** with mobile-first approach
+- **Modern design patterns** with gradients and micro-interactions
 
 ## 🚀 App Features
 
@@ -165,6 +167,15 @@ yarn format
 - ✅ **Consistent typography** with proper heading hierarchy
 - ✅ **Enhanced form elements** with better UX
 - ✅ **Custom scrollbar styling** for visual consistency
+
+### Responsive Design
+
+- ✅ **Mobile-first approach** with progressive enhancement
+- ✅ **Breakpoint system** for all device sizes (Mobile, Tablet, Desktop, Wide)
+- ✅ **Flexible layouts** using CSS Grid and Flexbox
+- ✅ **Touch-friendly interactions** for mobile devices
+- ✅ **Optimized typography** that scales across screen sizes
+- ✅ **Consistent spacing** using design token system
 
 ## 🧪 Testing Strategy
 
@@ -227,7 +238,9 @@ yarn format
 1. **Component Development**
    - Create TypeScript interfaces with type-only imports
    - Implement component logic with proper error handling
-   - Add styled-components styling with design tokens
+   - Add styled-components styling with consistent design tokens
+   - Implement responsive design with mobile-first approach
+   - Add micro-interactions and hover effects for better UX
    - Write comprehensive tests with React Testing Library
 
 2. **State Management**
@@ -236,13 +249,19 @@ yarn format
    - Handle async operations with loading and error states
    - Implement optimistic updates for better UX
 
-3. **API Integration**
+3. **Design System Implementation**
+   - Use consistent design tokens for spacing, typography, and colors
+   - Implement responsive breakpoints for all device sizes
+   - Follow accessibility guidelines with proper focus management
+   - Add smooth animations and transitions for better user experience
+
+4. **API Integration**
    - Create service classes for API calls (todoService)
    - Use TypeScript interfaces for request/response types
    - Implement proper error handling and retry logic
    - Follow RESTful conventions for endpoints
 
-4. **Testing**
+5. **Testing**
    - Write tests alongside component development
    - Test user interactions and edge cases
    - Ensure accessibility compliance
@@ -311,6 +330,32 @@ The app integrates with the [JSONPlaceholder API](https://jsonplaceholder.typico
 - **Enhanced disabled states** for better user feedback
 - **Custom scrollbar styling** for visual consistency
 - **Typography system** with proper heading hierarchy
+
+## 🎨 Design System
+
+### Design Tokens
+
+- **Spacing Scale**: xs (0.25rem) to xxl (3rem) for consistent margins and padding
+- **Typography Scale**: xs (0.75rem) to 4xl (2.25rem) with proper font weights
+- **Color Palette**: Semantic colors with gradients for primary actions
+- **Border Radius**: sm (0.375rem) to xl (1rem) for consistent rounded corners
+- **Shadows**: Multiple levels for depth and visual hierarchy
+
+### Modern Design Patterns
+
+- **Gradient backgrounds** for visual appeal and depth
+- **Card-based layouts** with proper shadows and spacing
+- **Status badges** with color-coded states (completed/pending)
+- **Micro-interactions** with hover effects and subtle animations
+- **Responsive breakpoints** for optimal viewing on all devices
+
+### Component Architecture
+
+- **Consistent sizing** across all interactive elements
+- **Progressive enhancement** for different screen sizes
+- **Accessibility-first** approach with proper focus management
+- **Performance optimization** with efficient CSS and animations
+- **Maintainable code** with clear component interfaces
 
 ## 🤝 Contributing
 

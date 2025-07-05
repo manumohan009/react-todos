@@ -69,11 +69,18 @@ const Select = styled.select`
   border-radius: 0.375rem;
   background-color: white;
   cursor: pointer;
+  font-family: inherit;
+  min-width: 120px;
 
-  &:focus {
+  &:focus-visible {
     border-color: var(--primary-color);
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    background-color: #e9ecef;
+    cursor: not-allowed;
   }
 `;
 

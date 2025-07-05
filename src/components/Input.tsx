@@ -39,16 +39,16 @@ const StyledInput = styled.input<{ hasError?: boolean }>`
   transition:
     border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
+  font-family: inherit;
 
-  &:focus {
+  &:focus-visible {
     color: var(--dark-color);
     background-color: white;
     border-color: ${props =>
       props.hasError ? 'var(--danger-color)' : 'var(--primary-color)'};
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem
-      ${props =>
-        props.hasError ? 'rgba(220, 53, 69, 0.25)' : 'rgba(0, 123, 255, 0.25)'};
+    outline: 2px solid ${props =>
+      props.hasError ? 'var(--danger-color)' : 'var(--primary-color)'};
+    outline-offset: 2px;
   }
 
   &:disabled {

@@ -31,6 +31,12 @@ const Checkbox = styled.input`
   width: 1.2rem;
   height: 1.2rem;
   cursor: pointer;
+  accent-color: var(--primary-color);
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
 `;
 
 const TodoContent = styled.div`

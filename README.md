@@ -118,6 +118,8 @@ yarn format
 - Used for app-wide styles, themes, and design tokens
 - Follows BEM methodology for class naming
 - Supports CSS custom properties for theming
+- **Modern CSS Reset** for cross-browser consistency
+- **Accessibility-focused styling** with `:focus-visible`
 
 ### Component Styling (Styled Components)
 
@@ -125,10 +127,14 @@ yarn format
 - TypeScript support for styled-component props
 - Consistent design tokens through theme provider
 - Scoped styling to prevent conflicts
+- **Form element consistency** with `font-family: inherit`
+- **Proper focus management** for accessibility
+- **Enhanced disabled states** for better UX
 
 ## 🚀 App Features
 
 ### Todo Management
+
 - ✅ **View all todos** from JSONPlaceholder API
 - ✅ **Add new todos** with form validation
 - ✅ **Edit todo titles** inline with real-time updates
@@ -137,17 +143,28 @@ yarn format
 - ✅ **Real-time statistics** (completed vs pending)
 
 ### Filtering & Search
+
 - ✅ **Filter by status** (All/Pending/Completed)
 - ✅ **Filter by user ID** (dynamically populated)
 - ✅ **Search todos** by title with real-time filtering
 - ✅ **Clear filters** to reset to default view
 
 ### User Experience
+
 - ✅ **Loading states** for all async operations
 - ✅ **Error handling** with user-friendly messages
 - ✅ **Responsive design** for all screen sizes
 - ✅ **Optimistic updates** for better performance
 - ✅ **Empty states** when no todos match filters
+
+### Accessibility & Styling
+
+- ✅ **Modern CSS Reset** for cross-browser consistency
+- ✅ **Keyboard navigation** with proper focus indicators
+- ✅ **Reduced motion support** for users with vestibular disorders
+- ✅ **Consistent typography** with proper heading hierarchy
+- ✅ **Enhanced form elements** with better UX
+- ✅ **Custom scrollbar styling** for visual consistency
 
 ## 🧪 Testing Strategy
 
@@ -253,18 +270,47 @@ yarn format
 ## 🔌 API Integration
 
 ### JSONPlaceholder API
+
 The app integrates with the [JSONPlaceholder API](https://jsonplaceholder.typicode.com/todos) which provides:
+
 - **200 sample todos** across 10 users
 - **Full CRUD operations** (GET, POST, PUT, PATCH, DELETE)
 - **RESTful endpoints** for development and testing
 - **Real-time data** for todo management
 
 ### Service Architecture
+
 - **`todoService.ts`** - Centralized API service layer
 - **Type-safe interfaces** for all API interactions
 - **Error handling** with proper HTTP status codes
 - **Loading states** for better user experience
 - **Optimistic updates** for immediate UI feedback
+
+## 🎨 CSS Reset & Accessibility
+
+### Modern CSS Reset Implementation
+
+- **Comprehensive reset** in `src/styles/global.styl`
+- **Box-sizing normalization** for consistent layouts
+- **Form element resets** (button, input, select, textarea)
+- **Typography improvements** with better font rendering
+- **Reduced motion support** for accessibility
+
+### Accessibility Features
+
+- **`:focus-visible`** for keyboard navigation indicators
+- **Proper focus outlines** with `outline-offset`
+- **Mouse focus removal** with `:focus:not(:focus-visible)`
+- **Color contrast compliance** for better readability
+- **Screen reader friendly** markup and styling
+
+### Enhanced Component Styling
+
+- **Consistent form elements** with `font-family: inherit`
+- **Improved focus management** across all interactive elements
+- **Enhanced disabled states** for better user feedback
+- **Custom scrollbar styling** for visual consistency
+- **Typography system** with proper heading hierarchy
 
 ## 🤝 Contributing
 

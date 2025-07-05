@@ -66,6 +66,8 @@ src/
 - Import global styles in `main.tsx` or `App.tsx`
 - Follow BEM methodology for class naming
 - Use CSS custom properties for theming
+- Implement modern CSS reset for cross-browser consistency
+- Use `:focus-visible` for accessibility-focused styling
 
 ### Component Styling (Styled Components)
 
@@ -73,6 +75,9 @@ src/
 - Use TypeScript for styled-component props
 - Follow naming convention: `StyledComponentName`
 - Use theme provider for consistent design tokens
+- Add `font-family: inherit` to form elements for consistency
+- Use `:focus-visible` instead of `:focus` for better accessibility
+- Implement proper disabled states for interactive elements
 
 ## Testing Strategy
 
@@ -168,6 +173,28 @@ src/
 - Implement optimistic updates for better UX
 - Handle API errors gracefully with user feedback
 - Use proper TypeScript types for all API interactions
+
+## CSS Reset & Styling Best Practices
+
+### Modern CSS Reset
+- Implement comprehensive CSS reset in `src/styles/global.styl`
+- Remove default browser styles for consistent cross-browser experience
+- Use `box-sizing: border-box` for all elements
+- Reset form elements (button, input, select, textarea) to remove defaults
+- Support `prefers-reduced-motion` for accessibility
+
+### Accessibility Styling
+- Use `:focus-visible` for keyboard navigation indicators
+- Implement proper focus outlines with `outline-offset`
+- Remove focus outlines for mouse users with `:focus:not(:focus-visible)`
+- Ensure sufficient color contrast ratios
+- Support reduced motion preferences
+
+### Typography System
+- Define consistent heading hierarchy (h1-h6)
+- Use CSS custom properties for font sizes and line heights
+- Implement proper spacing for paragraphs and headings
+- Ensure readable line lengths and spacing
 
 ## Error Handling
 

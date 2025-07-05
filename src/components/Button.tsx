@@ -48,9 +48,9 @@ const StyledButton = styled.button<Omit<ButtonProps, 'children'>>`
     text-decoration: none;
   }
 
-  &:focus {
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  &:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
   }
 
   ${props => {

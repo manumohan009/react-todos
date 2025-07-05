@@ -1,0 +1,146 @@
+# React Todos App - Cursor Rules
+
+## Project Overview
+
+This is a React Todos application built with TypeScript, Vite, and modern styling solutions.
+
+## Tech Stack & Architecture
+
+### Core Technologies
+
+- **React 19** with TypeScript for type safety
+- **Vite** for fast development and building
+- **Stylus** for global app styling
+- **Styled Components** for component-level styling
+- **Vitest** with jsdom for unit testing
+- **ESLint** and **Prettier** for code quality
+
+### State Management
+
+- **NO Redux** - Use React's built-in state management (useState, useReducer, Context API)
+- Prefer local component state when possible
+- Use React Context for shared state across components
+
+## File Structure & Organization
+
+### Directory Structure
+
+```
+src/
+├── components/          # Reusable UI components
+├── pages/              # Page-level components
+├── hooks/              # Custom React hooks
+├── utils/              # Utility functions
+├── types/              # TypeScript type definitions
+├── styles/             # Global Stylus styles
+├── __tests__/          # All test files
+└── assets/             # Static assets
+```
+
+### Component Structure
+
+- Use functional components with hooks
+- Implement TypeScript interfaces for props
+- Use styled-components for component-specific styling
+- Place components in appropriate directories based on scope
+
+## Styling Guidelines
+
+### Global Styling (Stylus)
+
+- Use `src/styles/` directory for global Stylus files
+- Import global styles in `main.tsx` or `App.tsx`
+- Follow BEM methodology for class naming
+- Use CSS custom properties for theming
+
+### Component Styling (Styled Components)
+
+- Create styled components within component files
+- Use TypeScript for styled-component props
+- Follow naming convention: `StyledComponentName`
+- Use theme provider for consistent design tokens
+
+## Testing Strategy
+
+### Test Organization
+
+- All tests go in `src/__tests__/` directory
+- Mirror the source directory structure in tests
+- Use descriptive test file names: `ComponentName.test.tsx`
+
+### Testing Guidelines
+
+- Use Vitest with jsdom for DOM testing
+- Write unit tests for all components
+- Test user interactions and state changes
+- Use React Testing Library for component testing
+- Mock external dependencies appropriately
+
+## Code Quality
+
+### TypeScript
+
+- Enable strict mode
+- Define interfaces for all props and state
+- Use type inference where appropriate
+- Avoid `any` type - use proper typing
+
+### ESLint & Prettier
+
+- Use provided ESLint configuration
+- Format code with Prettier
+- Follow consistent naming conventions
+- Use meaningful variable and function names
+
+## Development Workflow
+
+### Component Development
+
+1. Create TypeScript interface for props
+2. Implement component logic
+3. Add styled-components for styling
+4. Write unit tests
+5. Update documentation if needed
+
+### State Management
+
+1. Start with local component state
+2. Use Context API for shared state
+3. Implement custom hooks for complex logic
+4. Avoid prop drilling
+
+## File Naming Conventions
+
+- Components: PascalCase (`TodoItem.tsx`)
+- Hooks: camelCase with `use` prefix (`useTodos.ts`)
+- Utilities: camelCase (`formatDate.ts`)
+- Types: PascalCase (`TodoTypes.ts`)
+- Test files: `.test.tsx` or `.spec.tsx`
+
+## Import/Export Guidelines
+
+- Use named exports for components
+- Use default exports sparingly
+- Group imports: React, third-party, local
+- Use absolute imports for better maintainability
+
+## Performance Considerations
+
+- Use React.memo for expensive components
+- Implement proper dependency arrays in useEffect
+- Lazy load components when appropriate
+- Optimize re-renders with useCallback and useMemo
+
+## Accessibility
+
+- Use semantic HTML elements
+- Implement proper ARIA attributes
+- Ensure keyboard navigation
+- Test with screen readers
+
+## Error Handling
+
+- Use Error Boundaries for component errors
+- Implement proper error states
+- Provide meaningful error messages
+- Log errors appropriately

@@ -4,6 +4,15 @@
 
 This is a React Todos application built with TypeScript, Vite, and modern styling solutions. The app integrates with the JSONPlaceholder API to provide a full-featured todo management system.
 
+## Package Management
+
+**⚠️ IMPORTANT**: This project uses **yarn exclusively** for package management.
+
+- Use `yarn add` for adding dependencies
+- Use `yarn remove` for removing dependencies
+- Use `yarn install` for installing dependencies
+- Do NOT use npm or pnpm commands
+
 ## Tech Stack & Architecture
 
 ### Core Technologies
@@ -180,6 +189,7 @@ src/
 ## CSS Reset & Styling Best Practices
 
 ### Modern CSS Reset
+
 - Implement comprehensive CSS reset in `src/styles/global.styl`
 - Remove default browser styles for consistent cross-browser experience
 - Use `box-sizing: border-box` for all elements
@@ -187,6 +197,7 @@ src/
 - Support `prefers-reduced-motion` for accessibility
 
 ### Responsive Design System
+
 - **Mobile-first approach** with progressive enhancement
 - **Breakpoint system**: Mobile (480px), Tablet (768px), Desktop (1024px), Wide (1200px)
 - **CSS Grid and Flexbox** for modern layouts
@@ -195,6 +206,7 @@ src/
 - **Design tokens** for colors, shadows, and border radius
 
 ### Accessibility Styling
+
 - Use `:focus-visible` for keyboard navigation indicators
 - Implement proper focus outlines with `outline-offset`
 - Remove focus outlines for mouse users with `:focus:not(:focus-visible)`
@@ -202,12 +214,14 @@ src/
 - Support reduced motion preferences
 
 ### Typography System
+
 - Define consistent heading hierarchy (h1-h6)
 - Use CSS custom properties for font sizes and line heights
 - Implement proper spacing for paragraphs and headings
 - Ensure readable line lengths and spacing
 
 ### Modern Design Patterns
+
 - **Gradient backgrounds** for visual appeal and depth
 - **Card-based layouts** with proper shadows and spacing
 - **Status badges** with color-coded states
@@ -218,6 +232,7 @@ src/
 ## Design System Architecture
 
 ### Design Tokens
+
 - **Spacing**: xs (0.25rem), sm (0.5rem), md (1rem), lg (1.5rem), xl (2rem), xxl (3rem)
 - **Typography**: xs (0.75rem) to 4xl (2.25rem) with proper font weights
 - **Colors**: Semantic color palette with gradients for primary actions
@@ -225,6 +240,7 @@ src/
 - **Shadows**: Multiple levels for depth and hierarchy
 
 ### Component Design Principles
+
 - **Consistent sizing** across all interactive elements
 - **Progressive enhancement** for different screen sizes
 - **Accessibility-first** approach with proper focus management

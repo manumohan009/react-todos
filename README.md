@@ -63,7 +63,7 @@ react-todos/
 ### Prerequisites
 
 - Node.js (v18 or higher)
-- yarn
+- **Yarn** (required - this project uses yarn exclusively)
 
 ### Installation
 
@@ -72,9 +72,11 @@ react-todos/
 git clone <repository-url>
 cd react-todos
 
-# Install dependencies
+# Install dependencies (yarn only)
 yarn install
 ```
+
+**⚠️ Important**: This project uses **yarn exclusively**. Do not use npm or pnpm for package management.
 
 ### Development
 

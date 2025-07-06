@@ -12,6 +12,10 @@
   --light-color: #f8f9fa
   --dark-color: #343a40
   
+  // Link colors
+  --link-color: #646cff
+  --link-hover-color: #535bf2
+  
   // Typography
   --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif
   --font-size-base: 1rem
@@ -80,6 +84,12 @@ ol[role='list']
 // A elements that don't have a class get default styles
 a:not([class])
   text-decoration-skip-ink: auto
+  font-weight: 500
+  color: var(--link-color)
+  text-decoration: inherit
+  
+  &:hover
+    color: var(--link-hover-color)
 
 // Make images easier to work with
 img,
@@ -113,6 +123,21 @@ table
 // Remove default button styles
 button
   cursor: pointer
+  border-radius: var(--border-radius)
+  border: 1px solid transparent
+  padding: 0.6em 1.2em
+  font-size: 1em
+  font-weight: 500
+  font-family: inherit
+  background-color: var(--light-color)
+  transition: border-color var(--transition-base)
+  
+  &:hover
+    border-color: var(--link-color)
+  
+  &:focus,
+  &:focus-visible
+    outline: 4px auto -webkit-focus-ring-color
 
 // Remove default textarea styles
 textarea
